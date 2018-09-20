@@ -6,5 +6,6 @@ export class Routes {
 
   public routes(app): void {
     app.route('/').get(this.taskController.index);
+    app.route('/add/').get(this.taskController.add);
   }
 }
