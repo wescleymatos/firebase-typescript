@@ -1,11 +1,10 @@
-import {Request, Response} from "express";
+import { TaskController } from '../controllers/taskController';
 
-export class Routes {       
-    public routes(app): void {          
-        app.route('/').get((req: Request, res: Response) => {            
-            res.status(200).send({
-                message: 'GET request successfulll!!!!'
-            })
-        })               
-    }
+export class Routes {
+
+  private taskController: TaskController = new TaskController();
+
+  public routes(app): void {
+    app.route('/').get(this.taskController.index);
+  }
 }
